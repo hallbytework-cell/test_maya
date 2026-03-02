@@ -3,8 +3,13 @@
     {
       "source": "/api/:path*",
       "destination": ""
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
+
   "redirects": [
     {
       "source": "/product/:id/category/:category",
@@ -62,6 +67,7 @@
       "statusCode": 301
     }
   ],
+
   "headers": [
     {
       "source": "/",
@@ -70,22 +76,10 @@
           "key": "Cache-Control",
           "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
         },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     },
     {
@@ -107,7 +101,7 @@
       ]
     },
     {
-      "source": "/_next/static/:path*",
+      "source": "/(.*)\\.(js|css|svg|woff|woff2|ttf|eot)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -121,15 +115,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
-        }
-      ]
-    },
-    {
-      "source": "*.{js,css,svg,woff,woff2,ttf,eot}",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
