@@ -1,0 +1,540 @@
+/* =========================================
+   1. HOME PAGE SHIMMER (Your Existing Code)
+   ========================================= */
+.shimmer-page {
+  --sh-bg: #e0e0e0;
+  --sh-light: #f5f5f5;
+  --sh-radius: 12px;
+  --sh-pill: 50px;
+  --sh-nav-mobile: 70px;
+  --sh-max-width: 1200px;
+  
+  width: 100%;
+  max-width: var(--sh-max-width);
+  margin: 0 auto;
+  
+  padding-top: 20px; 
+  padding-bottom: 90px; /* Space for bottom nav */
+  padding-left: 16px;
+  padding-right: 16px;
+  
+  box-sizing: border-box;
+  overflow-x: hidden; 
+  background-color: #fff;
+  font-family: sans-serif; 
+}
+
+/* Apply border-box ONLY to shimmer children to fix sizing issues */
+.shimmer-page *,
+.shimmer-page *::before,
+.shimmer-page *::after {
+  box-sizing: border-box;
+}
+
+/* Home Animation (Background Shift) */
+.shimmer-page .shimmer {
+  background: #eee;
+  background: linear-gradient(
+    110deg,
+    var(--sh-bg) 8%,
+    var(--sh-light) 18%,
+    var(--sh-bg) 33%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-move 1.5s linear infinite;
+}
+
+@keyframes shimmer-move {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Topbar */
+.shimmer-page .shimmer-topbar {
+  display: none; /* Hidden on mobile */
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+/* Navbar */
+.shimmer-page .shimmer-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  gap: 15px;
+  width: 100%;
+}
+
+.shimmer-page .shimmer-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.shimmer-page .shimmer-search {
+  flex-grow: 1;
+  height: 40px;
+  border-radius: var(--sh-pill);
+}
+
+.shimmer-page .shimmer-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Hero */
+.shimmer-page .shimmer-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--sh-radius);
+  margin-bottom: 25px;
+}
+
+/* Title */
+.shimmer-page .shimmer-title {
+  width: 60%;
+  height: 24px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.shimmer-page .shimmer-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.shimmer-page .shimmer-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--sh-radius);
+}
+
+/* Bottom Nav */
+.shimmer-page .shimmer-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--sh-nav-mobile);
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999; 
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.shimmer-page .shimmer-tab {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Perfect circle */
+}
+
+/* Home Page Media Queries */
+@media (min-width: 768px) {
+  .shimmer-page {
+    max-width: 100%; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px; 
+    padding-right: 40px;
+  }
+  .shimmer-page .shimmer-topbar { display: block; }
+  .shimmer-page .shimmer-search {
+    max-width: 600px; 
+    margin: 0 auto;
+  }
+  .shimmer-page .shimmer-hero {
+    aspect-ratio: 3.5 / 1; 
+    height: auto;        
+    min-height: 300px;    
+  }
+  .shimmer-page .shimmer-categories {
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 24px;
+  }
+  .shimmer-page .shimmer-bottom-nav { display: none; }
+}
+
+
+/* =========================================
+   2. PRODUCT PAGE SHIMMER (New Code)
+   ========================================= */
+
+/* Unique Animation for Product Page (Wave Effect) */
+@keyframes shimmer-wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Base Wrapper for the shiny effect */
+.ps-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+.ps-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer-wave 1.5s infinite;
+}
+
+/* Layout Container */
+.ps-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.ps-container * {
+  box-sizing: border-box;
+}
+
+/* Product Navbar */
+.ps-navbar {
+  height: 80px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ps-nav-center { display: none; }
+.ps-nav-icons { display: flex; gap: 16px; }
+
+/* Main Grid */
+.ps-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Left Column */
+.ps-col-left { width: 100%; }
+.ps-main-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.ps-thumb-grid {
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Right Column */
+.ps-col-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Info Box Component */
+.ps-info-box {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #f9fafb;
+}
+.ps-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+  margin-top: 24px;
+}
+.ps-info-item { display: flex; align-items: center; gap: 12px; }
+
+/* Utilities */
+.ps-row { display: flex; gap: 12px; }
+.ps-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+/* Product Page Desktop Media Query */
+@media (min-width: 1024px) {
+  .ps-navbar { padding: 0 32px; }
+  .ps-main {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 64px;
+    padding: 40px;
+  }
+  .ps-col-left { width: 58%; }
+  .ps-col-right { width: 42%; }
+  .ps-nav-center { display: block; width: 33%; }
+  .ps-thumb-grid { display: grid; }
+  .ps-main-img { aspect-ratio: 5/4; }
+}
+
+/* =========================================
+   3. CATEGORY PAGE SHIMMER (New Code)
+   ========================================= */
+
+/* Reuse the wave animation */
+@keyframes shimmer-wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Darker Gray Base */
+.cs-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #e0e0e0; /* Matches Home/Product shimmer */
+  border-radius: 8px;
+}
+
+.cs-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer-wave 1.5s infinite;
+}
+
+/* Layout Container */
+.cs-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  font-family: sans-serif;
+}
+.cs-container * { box-sizing: border-box; }
+
+/* Navbar (Reused style) */
+.cs-navbar {
+  height: 80px;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cs-nav-center { display: none; }
+.cs-nav-icons { display: flex; gap: 16px; }
+
+/* Main Content Area */
+.cs-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Sidebar (Hidden on mobile) */
+.cs-sidebar {
+  display: none; /* Hidden by default */
+  width: 250px;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 24px;
+  border-right: 1px solid #f3f4f6;
+  padding-right: 20px;
+}
+
+/* Right Content */
+.cs-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0; /* CRITICAL FIX: Allows container to contain wide children properly */
+  width: 100%;
+}
+
+
+.cs-cat-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto; /* Fix: Allow horizontal scroll if needed */
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Optional: Hide scrollbar for cleaner look */
+  -ms-overflow-style: none;
+}
+/* Optional: Hide scrollbar for Webkit */
+.cs-cat-row::-webkit-scrollbar {
+  display: none;
+}
+.cs-cat-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Product Grid */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cols mobile */
+  gap: 16px;
+}
+
+/* Product Card Skeleton */
+.cs-card {
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 12px;
+  background: white;
+}
+.cs-card-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Desktop Media Query */
+@media (min-width: 1024px) {
+  .cs-navbar { padding: 0 32px; }
+  .cs-nav-center { display: block; width: 40%; }
+  
+  .cs-sidebar { display: flex; } /* Show sidebar */
+  .cs-grid { grid-template-columns: repeat(5, 1fr); gap: 24px; } /* 4 cols desktop */
+  
+  .cs-cat-circle { width: 90px; height: 90px; }
+}
+
+/* Update the Desktop Media Query at the bottom */
+@media (min-width: 1024px) {
+  .cs-navbar { padding: 0 32px; }
+  .cs-nav-center { display: block; width: 40%; }
+  
+  /* Fix: Switch back to row on desktop */
+  .cs-main { 
+    flex-direction: row; 
+  } 
+  
+  .cs-sidebar { display: flex; } 
+  .cs-grid { grid-template-columns: repeat(5, 1fr); gap: 24px; }
+  .cs-cat-circle { width: 90px; height: 90px; }
+}
+
+/* =========================================
+   4. FALLBACK LOGO LOADER (Corrected & Premium)
+   ========================================= */
+
+.fallback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 1. Logo Animation */
+@keyframes float-logo {
+  0% { transform: translateY(0px) scale(1); box-shadow: 0 10px 25px -5px rgba(20, 83, 45, 0.2); }
+  50% { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 30px -5px rgba(20, 83, 45, 0.15); }
+  100% { transform: translateY(0px) scale(1); box-shadow: 0 10px 25px -5px rgba(20, 83, 45, 0.2); }
+}
+
+/* Outer Ring (Mint Green) */
+.fallback-logo-circle {
+  /* Change background from #ecfdf5 to #ffffff */
+  background: #ffffff; 
+  
+  /* ... keep all other properties same ... */
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float-logo 3.5s ease-in-out infinite;
+  overflow: hidden; 
+  padding: 8px; 
+  box-sizing: border-box;
+  
+  /* Add a slightly stronger shadow to pop against the colored background */
+  box-shadow: 0 10px 30px -5px rgba(20, 83, 45, 0.15);
+}
+
+/* The Logo Image Itself */
+.fallback-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole logo is visible */
+  
+  /* CRITICAL FIX: This cuts off the white corners of your square image */
+  border-radius: 50%; 
+  
+  /* Optional: Adds a tiny white border to separate logo from mint ring */
+  background-color: white; 
+  border: 2px solid white; 
+}
+
+/* 2. Text Animation (Green Gradient) */
+@keyframes shimmer-text {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.fallback-text {
+  margin-top: 24px;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  
+  /* Gradient Text */
+  background: linear-gradient(90deg, #14532d 0%, #22c55e 50%, #14532d 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  
+  animation: shimmer-text 3s linear infinite;
+}
+
+/* 3. Subtitle */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fallback-sub {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fade-in-up 1s ease-out forwards;
+  animation-delay: 0.2s;
+}

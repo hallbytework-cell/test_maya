@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- ============================================ -->
+  <!-- STATIC PAGES - High Priority -->
+  <!-- ============================================ -->
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://mayavriksh.in/</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mayavriksh.in/images/mvLogo.jpeg</image:loc>
+      <image:title>MayaVriksh - Buy Fresh Indoor Plants Online India</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Search Page -->
+  <url>
+    <loc>https://mayavriksh.in/search</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Checkout -->
+  <url>
+    <loc>https://mayavriksh.in/checkout</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Login -->
+  <url>
+    <loc>https://mayavriksh.in/login</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <!-- Signup -->
+  <url>
+    <loc>https://mayavriksh.in/signup</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <!-- ============================================ -->
+  <!-- CAMPAIGN / SEO LANDING PAGES - High Priority -->
+  <!-- ============================================ -->
+  
+  <!-- Best Sellers -->
+  <url>
+    <loc>https://mayavriksh.in/plants/best-sellers</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/new-launched</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/trending</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/featured</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/air-purifying</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/vastu-plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/plants/gifts</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- ============================================ -->
+  <!-- LONG-TAIL SEO LANDING PAGES - High Priority -->
+  <!-- ============================================ -->
+  
+  <!-- Best Air Purifying Plants for Bedroom India -->
+  <!-- <url>
+    <loc>https://mayavriksh.in/plants/air-purifying-bedroom</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url> -->
+  
+  <!-- Low Light Indoor Plants for Indian Homes -->
+  <!-- <url>
+    <loc>https://mayavriksh.in/plants/low-light-indoor</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url> -->
+  
+  <!-- POLICIES & HELP -->
+  <url>
+    <loc>https://mayavriksh.in/track-order</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/about</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/shipping-policy</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/return-policy</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/faqs</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/contact-us</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://mayavriksh.in/about-us</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- ============================================ -->
+  <!-- CATEGORY PAGES - High Priority -->
+  <!-- ============================================ -->
+  
+<url>
+    <loc>https://mayavriksh.in/category/plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/category/indoor-plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/category/outdoor-plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/category/succulents-cacti</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/category/flowering-plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://mayavriksh.in/category/aquatic-plants</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ============================================ -->
+  <!-- PRODUCT PAGES - All Plant -->
+  <!-- ============================================ -->
+
+<url>
+    <loc>https://mayavriksh.in/plant/areca-palm</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-red-valentine</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/antherium-watermelon</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-thai-pink</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/snake-plant</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-butterfly</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aloe-vera</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/spider-plant</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/eugenia-cherry-red-flamingo</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-thai-cherry-red-anyamanee</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/peace-lily</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/hoya-kerrii-sweetheart</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-kenedes-royalpink</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-milky-way</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/philodendron-red-congo</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/good-luck-bamboo</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/tulsi-holy-basil</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/zz-plant</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-white</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/brazilian-wood</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-anymanee-china-red</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/jade-plant</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/dieffenbachia-dumb-cane-tiger</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/philodendron-ring-of-fire</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/birkin</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/anthurium-red</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/table-top-kamini</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/mili-plant-crown-of-thorns</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/adenium-desert-rose</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-lipstick</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/philodendron-moonlight-hope</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/money-plant-golden-pothos</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-chinese-evergreen</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-white-marbel</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/lucky-bamboo</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-milky-white</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/dieffenbachia-dumb-cane</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/plant/aglaonema-super-white</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ============================================ -->
+  <!-- REMOVED: Old /plant/ URLs (Legacy Path)    -->
+  <!-- All 40+ /plant/ URLs have been removed as -->
+  <!-- they duplicate /product/slug/ID structure -->
+  <!-- Traffic redirected via vercel.json 301s   -->
+  <!-- ============================================ -->
+
+  <!-- ============================================ -->
+  <!-- PRODUCT PAGES - All Plant Variants (Correct) -->
+  <!-- ============================================ -->
+  <url>
+    <loc>https://mayavriksh.in/product/areca-palm/160361278</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-red-valentine/152938801</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/antherium-watermelon/111921496</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-thai-pink/135107757</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-thai-pink/180384812</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/snake-plant/180058484</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/snake-plant/125627179</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-butterfly/102449310</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aloe-vera/102014160</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/spider-plant/164063581</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/eugenia-cherry-red-flamingo/155633406</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/eugenia-cherry-red-flamingo/107206949</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-thai-cherry-red-anyamanee/174632330</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/peace-lily/179603258</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/hoya-kerrii-sweetheart/168506729</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-kenedes-royalpink/114712035</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-kenedes-royalpink/122432099</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-milky-way/176662125</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/philodendron-red-congo/177251245</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/good-luck-bamboo/190874793</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/good-luck-bamboo/110209420</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/good-luck-bamboo/151407746</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/tulsi-holy-basil/187912230</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/tulsi-holy-basil/142814810</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/zz-plant/124897979</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-white/196345574</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/brazilian-wood/186702662</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-anymanee-china-red/170263690</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-anymanee-china-red/128504883</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/jade-plant/167034969</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/jade-plant/140017727</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/jade-plant/180624829</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/dieffenbachia-dumb-cane-tiger/124959131</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/philodendron-ring-of-fire/155604115</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/birkin/111522184</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/anthurium-red/184021708</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/table-top-kamini/192187110</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/mili-plant-crown-of-thorns/127281151</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/mili-plant-crown-of-thorns/102007097</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/adenium-desert-rose/165261048</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-lipstick/107771870</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-lipstick/117323072</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/philodendron-moonlight-hope/104862147</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/philodendron-moonlight-hope/187586430</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/money-plant-golden-pothos/136763852</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-chinese-evergreen/105124768</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-white-marbel/185649505</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/lucky-bamboo/102125074</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mayavriksh.in/product/lucky-bamboo/124925987</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-milky-white/143239489</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/dieffenbachia-dumb-cane/124218373</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mayavriksh.in/product/aglaonema-super-white/179774316</loc>
+    <lastmod>2024-12-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>

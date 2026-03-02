@@ -1,0 +1,146 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": ""
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/product/:id/category/:category",
+      "destination": "/product/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/:id/category/:category/:sub*",
+      "destination": "/product/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/:slug/:id/category/:category",
+      "destination": "/product/:slug/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/:slug/:id/category/:category/:sub*",
+      "destination": "/product/:slug/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/plant/:slug",
+      "destination": "/product/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/plants/:slug",
+      "destination": "/product/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/plants/:slug/:sub",
+      "destination": "/product/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/best-sellers",
+      "destination": "/category/best-sellers",
+      "statusCode": 301
+    },
+    {
+      "source": "/plants",
+      "destination": "/category/plants",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/5",
+      "destination": "/category/plants",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/147039885",
+      "destination": "/category/plants",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/images/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_next/static/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "*.{js,css,svg,woff,woff2,ttf,eot}",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ]
+}

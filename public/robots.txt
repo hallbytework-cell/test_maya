@@ -1,0 +1,118 @@
+# MayaVriksh Robots.txt - Optimized for Google Indexing
+# https://mayavriksh.in
+# Last Updated: 2026-02-26
+# Ensures pages are properly crawled and indexed for SEO
+
+User-agent: *
+Allow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engine crawlers with explicit permissions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+Request-rate: 10/1s
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Disallow private/authenticated user pages only
+# These require authentication and shouldn't be indexed
+Disallow: /account/
+Disallow: /dashboard
+Disallow: /profile/
+Disallow: /change-password
+Disallow: /my-orders
+Disallow: /addresses
+Disallow: /wishlist-private
+
+# Disallow API endpoints and admin
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# ALLOW indexing of commerce and SEO-critical pages
+# Remove any noindex restrictions
+Allow: /checkout
+Allow: /track-order
+Allow: /login
+Allow: /signup
+Allow: /register
+Allow: /search
+Allow: /product/
+Allow: /category/
+Allow: /campaign/
+
+# ============================================================
+# SOFT 404 BLOCKER - February 26, 2026 Update
+# ============================================================
+# Blocks 107 product/category mismatch URLs that return empty content
+# Root cause: /product/ID/category/plants/?sub=SUBCATEGORY patterns
+# Impact: Prevents Soft 404 pages from being crawled by Google
+
+# Block ALL /product//category/ pattern combinations (SOFT 404 cause #1)
+# Examples:
+#   /product/168506729/category/plants/?sub=FLOWERING_PLANTS
+#   /product/140017727/category/plants/?sub=AQUATIC_PLANTS
+Disallow: /product/*/category/*
+Disallow: /product/*/*/category/*
+Disallow: /product/*/*/*/category/*
+
+# Block all subcategory parameter URLs (SOFT 404 cause #1)
+# These URLs return empty content when product doesn't match subcategory
+Disallow: /*?sub=*
+Disallow: /*?sub_*
+
+# Block ghost/deleted product URLs that return soft 404 (SOFT 404 cause #2)
+# These test/deleted products still accessible should not be crawled
+Disallow: /product/5
+Disallow: /product/5/
+Disallow: /product/147039885
+Disallow: /product/147039885/
+
+# Block legacy URL structures (redirected via vercel.json, but block for safety)
+Disallow: /plant/
+Disallow: /plants/
+
+# Disallow archival of old/duplicate parameter-based URLs
+# These will use canonical URL instead
+Disallow: /*?potId=*
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /*?campaignId=*
+Disallow: /*?variant=*
+
+# Sitemaps - Critical for indexing
+Sitemap: https://mayavriksh.in/sitemap.xml
+Sitemap: https://mayavriksh.in/sitemap-products.xml
+Sitemap: https://mayavriksh.in/sitemap-categories.xml
+
+# Host directive (primarily for Yandex)
+Host: https://mayavriksh.in

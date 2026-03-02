@@ -1,0 +1,47 @@
+/* Critical CSS only - inline for better performance */
+html {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+}
+
+body {
+        font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Critical animations */
+@keyframes scroll-left {
+        0% {
+                transform: translateX(0);
+        }
+        100% {
+                transform: translateX(-50%);
+        }
+}
+
+.animate-scroll-left {
+        width: max-content;
+        animation: scroll-left 45s linear infinite;
+}
+
+.bg-green-gradient {
+        background: linear-gradient(to right, #15803d 0%, #84cc16 100%);
+}
+
+.leaf-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2316a34a' fill-opacity='0.03'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Import Tailwind only - slick CSS moved to component for code splitting */
+@import "tailwindcss";
+
+/* Optimize image loading */
+img {
+        contain: layout style paint;
+}
+
+/* Performance: content-visibility for off-screen content */
+.product-grid,
+.lazy-section {
+        content-visibility: auto;
+}

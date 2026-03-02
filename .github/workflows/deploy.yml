@@ -1,0 +1,53 @@
+name: Deploy Frontend to VPS
+
+on:
+  push:
+    branches: [ devOps_deploy, coupons ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy frontend files to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          source: "."
+          target: "/root/mayavriksh-stack/frontend"
+
+      - name: Deploy frontend via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/mayavriksh-stack/frontend
+
+            docker compose down
+            docker compose up -d --build --remove-orphans
+
+            docker system prune -f
+
+            echo "===== Frontend status ====="
+            docker compose ps
+
+            echo "===== Frontend logs (last 20 lines) ====="
+            docker compose logs frontend | tail -20
+
+            echo "===== Traefik status ====="
+            cd /root/mayavriksh-stack/traefik
+            docker compose logs traefik | tail -10
+
+      - name: Verify deployment
+        run: |
+          echo "✅ Frontend deployment complete"
+          echo "Site: https://mayavriksh.in"
+          echo "API:  https://mayavriksh.in/api"
