@@ -1,23 +1,15 @@
-<<<<<<< HEAD
-import React, { useCallback, useMemo, useState, Suspense } from "react";
-=======
-import React, { useCallback, useMemo, useState, Suspense, lazy } from "react";
->>>>>>> 048fdb4 (Initial commit from dev-akash)
+import React, {
+  useCallback,
+  useMemo,
+  useState,
+  Suspense,
+  lazy,
+} from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import BottomNavbar from "./BottomNavBar2";
-<<<<<<< HEAD
-import AuthPopup from "./AuthModal";
-import CartSidebar from "./CartSidebar";
-import { PageViewTracker } from "./PageViewTracker";
-import { useAuth } from "@/context/AuthContext";
-import SortBottomSheet from "./SortBottomSheet";
-import ScrollToTop from "./ScrollToTop";
-import HomeSkeleton from "./shimmer/HomeSkeleton";
-
-=======
 import CartSidebar from "./CartSidebar";
 import { PageViewTracker } from "./PageViewTracker";
 import { useAuth } from "@/context/AuthContext";
@@ -28,7 +20,6 @@ import HomeSkeleton from "./shimmer/HomeSkeleton";
 const AuthPopup = lazy(() => import("./AuthModal"));
 const SortBottomSheet = lazy(() => import("./SortBottomSheet"));
 
->>>>>>> 048fdb4 (Initial commit from dev-akash)
 export default function Layout() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -50,7 +41,9 @@ export default function Layout() {
 
   const handleNavbarStatus = useCallback((isLoading, hasItems) => {
     setNavbarStatus((prev) => {
-      if (prev.isLoading === isLoading && prev.hasItems === hasItems) return prev;
+      if (prev.isLoading === isLoading && prev.hasItems === hasItems) {
+        return prev;
+      }
       return { isLoading, hasItems };
     });
   }, []);
@@ -69,7 +62,6 @@ export default function Layout() {
     if (logout) logout();
     sessionStorage.removeItem("mv_access_token");
     sessionStorage.removeItem("authToken");
-
     navigate("/");
     alert("Logged out successfully!");
   }, [logout, navigate]);
@@ -82,22 +74,40 @@ export default function Layout() {
     }
   }, [user, navigate]);
 
-  const handleFilterClick = useCallback(() => setIsFilterSidebarOpen((p) => !p), []);
-  const handleCartToggle = useCallback(() => setIsCartOpen((p) => !p), []);
+  const handleFilterClick = useCallback(
+    () => setIsFilterSidebarOpen((p) => !p),
+    []
+  );
+  const handleCartToggle = useCallback(
+    () => setIsCartOpen((p) => !p),
+    []
+  );
   const handleSortToggle = useCallback(() => setIsSortOpen(true), []);
-  const handleSearchToggle = useCallback(() => setIsMobileSearchOpen(true), []);
+  const handleSearchToggle = useCallback(
+    () => setIsMobileSearchOpen(true),
+    []
+  );
 
-  const contextValue = useMemo(() => ({
-    isLoggedIn,
-    handleLogout,
-    isFilterSidebarOpen,
-    setIsFilterSidebarOpen,
-    setIsAuthPopupVisible,
-    setModalLocked,
-    setNavbarStatus: handleNavbarStatus,
-    currentSort,
-    setCurrentSort
-  }), [isLoggedIn, handleLogout, isFilterSidebarOpen, handleNavbarStatus, currentSort]);
+  const contextValue = useMemo(
+    () => ({
+      isLoggedIn,
+      handleLogout,
+      isFilterSidebarOpen,
+      setIsFilterSidebarOpen,
+      setIsAuthPopupVisible,
+      setModalLocked,
+      setNavbarStatus: handleNavbarStatus,
+      currentSort,
+      setCurrentSort,
+    }),
+    [
+      isLoggedIn,
+      handleLogout,
+      isFilterSidebarOpen,
+      handleNavbarStatus,
+      currentSort,
+    ]
+  );
 
   return (
     <div className="flex flex-col w-full min-h-screen">
@@ -120,9 +130,7 @@ export default function Layout() {
         </main>
       </Suspense>
 
-      <div className="">
-        <Footer />
-      </div>
+      <Footer />
 
       <BottomNavbar
         onProfileClick={handleProfileClick}
@@ -136,24 +144,7 @@ export default function Layout() {
         isMobileSearchOpen={isMobileSearchOpen}
       />
 
-<<<<<<< HEAD
-      <SortBottomSheet
-        isOpen={isSortOpen}
-        onClose={() => setIsSortOpen(false)}
-        onApply={handleSortApply}
-        currentSort={currentSort}
-      />
-
-      <AuthPopup
-        show={isAuthPopupVisible}
-        onClose={() => {
-          if (!modalLocked) setIsAuthPopupVisible(false);
-        }}
-        onLoginSuccess={handleLoginSuccess}
-        disableClose={modalLocked}
-      />
-=======
-      {/* Lazy-loaded modals (only rendered when needed) */}
+      {/* Lazy-loaded modals */}
       <Suspense fallback={null}>
         {isSortOpen && (
           <SortBottomSheet
@@ -163,9 +154,7 @@ export default function Layout() {
             currentSort={currentSort}
           />
         )}
-      </Suspense>
 
-      <Suspense fallback={null}>
         {isAuthPopupVisible && (
           <AuthPopup
             show={isAuthPopupVisible}
@@ -177,9 +166,11 @@ export default function Layout() {
           />
         )}
       </Suspense>
->>>>>>> 048fdb4 (Initial commit from dev-akash)
 
-      <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <CartSidebar
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
     </div>
   );
 }
