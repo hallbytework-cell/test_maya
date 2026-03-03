@@ -39,6 +39,7 @@ import { useAuth } from "@/context/AuthContext";
 import CartSidebar from "@/components/CartSidebar";
 import Navbar from "@/components/Navbar";
 import PlantTabs from "../../components/products/PlantTabs";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 import ReviewsSection from "@/components/products/ReviewsSection";
 import DeliveryPinCheck from "@/components/products/DeliveryPinCheck";
 import { PLANT_SIZES } from "@/constants/plants.constants";
@@ -765,7 +766,15 @@ function ProductPage() {
                             <ChevronLeft className="w-6 h-6" />
                         </button>
                         <Link to="/" className="flex-shrink-0">
-                            <img src="/images/rounded_mv_logo.jpg" alt="MayaVriksh" className="h-8 w-auto object-contain cursor-pointer" />
+                            <OptimizedImageResponsive 
+                                src="/images/rounded_mv_logo.jpg" 
+                                alt="MayaVriksh" 
+                                width={32}
+                                height={32}
+                                loading="eager"
+                                fetchpriority="high"
+                                className="h-8 w-auto object-contain cursor-pointer" 
+                            />
                         </Link>
                         <h2 className="text-sm font-bold text-slate-900 truncate max-w-[200px]" style={{ fontFamily: "'Poppins', sans-serif" }}>
                             {product.plantName}
@@ -793,9 +802,13 @@ function ProductPage() {
                                     <Loader2 className="w-4 h-4 text-emerald-600 animate-spin" />
                                 </div>
                             )}
-                            <img
+                            <OptimizedImageResponsive
                                 src={selections.selectedImage}
                                 alt={product.plantName}
+                                width={800}
+                                height={800}
+                                loading="eager"
+                                fetchpriority="high"
                                 className={`w-full h-full object-cover object-center transition-all duration-500 hover:scale-105 ${isFetching ? "opacity-80" : "opacity-100"}`}
                             />
                             <div className="absolute bottom-4 left-4 z-0">
@@ -825,7 +838,14 @@ function ProductPage() {
                                                 ${selections.selectedImage === url ? "border-emerald-600 ring-2 ring-emerald-100 shadow-md scale-105" : "border-stone-200 hover:border-stone-300 opacity-80 hover:opacity-100"}
                                         `}
                                 >
-                                    <img src={url} alt={`thumb-${i}`} className="w-full h-full object-cover" />
+                                    <OptimizedImageResponsive 
+                                        src={url} 
+                                        alt={`thumb-${i}`} 
+                                        width={64}
+                                        height={64}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover" 
+                                    />
                                 </button>
                             ))}
                         </div>
@@ -1206,7 +1226,14 @@ function ProductPage() {
                 <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-[0_-8px_16px_-4px_rgba(0,0,0,0.1)] p-4 z-50 lg:hidden animate-in slide-in-from-bottom-full duration-300 pb-safe">
                     <div className="flex items-center gap-4 justify-between">
                         <div className="flex items-center gap-3 overflow-hidden">
-                            <img src={selections.selectedImage} alt="mini" className="w-12 h-12 rounded-xl object-cover border border-stone-200 shadow-sm" />
+                            <OptimizedImageResponsive 
+                                src={selections.selectedImage} 
+                                alt="mini" 
+                                width={48}
+                                height={48}
+                                loading="lazy"
+                                className="w-12 h-12 rounded-xl object-cover border border-stone-200 shadow-sm" 
+                            />
                             <div className="flex flex-col min-w-0">
                                 <span className="text-sm font-black text-slate-900 truncate max-w-[120px]">{product.plantName}</span>
                                 <span className="text-sm font-bold text-emerald-700">₹{(selections.price * selections.quantity).toFixed(0)}</span>
