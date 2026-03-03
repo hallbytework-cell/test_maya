@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import clsx from "clsx";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState, useEffect, useMemo } from "react";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 import { filterOutById, filterByIds } from "@/utils/algorithmOptimizations";
 import { useCartSync } from "@/hooks/useCartSync";
 
@@ -471,7 +472,14 @@ const RecommendedProducts = ({ currentCartItems }) => {
           return (
             <div key={product.id} className="bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
               <div className="relative mb-2">
-                <img src={variant.image || product.images?.[0]} alt={product.name} className="w-full h-28 object-cover rounded-lg" />
+                <OptimizedImageResponsive 
+                  src={variant.image || product.images?.[0]} 
+                  alt={product.name} 
+                  width={200}
+                  height={112}
+                  loading="lazy"
+                  className="w-full h-28 object-cover rounded-lg" 
+                />
                 {hasDiscount && <div className="absolute top-1 right-1 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">SAVE</div>}
               </div>
 
@@ -988,7 +996,14 @@ export default function CartSidebar({ isOpen, onClose }) {
                     />
 
                     <div className="flex gap-2 cursor-pointer w-full" onClick={() => handleNavigateToProduct(item)}>
-                      <img src={item.image} alt={item.name} className="h-28 w-20 rounded-lg object-cover shrink-0" />
+                      <OptimizedImageResponsive 
+                        src={item.image} 
+                        alt={item.name} 
+                        width={80}
+                        height={112}
+                        loading="lazy"
+                        className="h-28 w-20 rounded-lg object-cover shrink-0" 
+                      />
 
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-sm text-gray-900 md line-clamp-2">
@@ -1100,7 +1115,14 @@ export default function CartSidebar({ isOpen, onClose }) {
                         </div>
                       )}
 
-                      <img src={item.image} alt={item.name} className="h-16 w-16 rounded-lg object-cover" />
+                      <OptimizedImageResponsive
+                        src={item.image}
+                        alt={item.name}
+                        width={64}
+                        height={64}
+                        loading="lazy"
+                        className="h-16 w-16 rounded-lg object-cover"
+                      />
 
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-sm text-gray-900 line-clamp-1 mb-1">{item.name}</p>
