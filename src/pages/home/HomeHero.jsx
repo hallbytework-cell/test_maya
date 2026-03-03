@@ -1,5 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
+import OptifiedImage from "@/components/OptimizedImageResponsive";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -66,11 +67,14 @@ export default function HomeHero() {
     return (
       <section className="mt-0 w-full overflow-hidden">
         <div className={`relative w-full ${heightClasses}`}> 
-          <img
+          <OptifiedImage
             src={heroSlides[0].imgSrc}
             alt={heroSlides[0].btn.label}
+            width={1920}
+            height={1080}
             fetchpriority="high"
-            className="w-full h-full object-cover rounded-lg block" 
+            loading="eager"
+            className="w-full h-full object-cover rounded-lg block"
           />
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
             <Link
@@ -91,9 +95,11 @@ export default function HomeHero() {
         <Slider {...settings}>
           {heroSlides.map((slide, idx) => (
             <div key={idx} className={`relative w-full ${heightClasses} outline-none`}>
-              <img
+              <OptifiedImage
                 src={slide.imgSrc}
                 alt={slide.btn.label}
+                width={1920}
+                height={1080}
                 loading={idx === 0 ? "eager" : "lazy"}
                 className="w-full h-full object-fill rounded-lg select-none block"
               />

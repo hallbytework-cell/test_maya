@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 
 export default function ReelCard({ reel, isActive, onSelect }) {
   const videoRef = useRef(null);
@@ -203,11 +204,13 @@ export default function ReelCard({ reel, isActive, onSelect }) {
         </div>
       ) : (
         <>
-          <img
+          <OptimizedImageResponsive
             src={reel.poster}
             alt={reel.title || 'Reel'}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            width={400}
+            height={600}
             loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { arpanImage, blogImage1, blogImage2, blogImage3, blogImage4 } from "@/constants/bannerImageUrl";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 
 const BLOG_DATA = [
     {
@@ -162,9 +163,12 @@ export const BlogSection = () => {
                         className="group shrink-0 snap-start w-[85vw] sm:w-[340px] md:w-[400px] xl:w-[450px] flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-slate-200 hover:shadow-2xl transition-all duration-500 cursor-pointer"
                     >
                         <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                            <img
+                            <OptimizedImageResponsive
                                 src={blog.image}
                                 alt={blog.title}
+                                width={450}
+                                height={280}
+                                loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                             />
                         </div>
@@ -247,9 +251,12 @@ export const BlogPage = () => {
                     </h1>
 
                     <div className="flex items-center justify-center gap-4 sm:gap-6 text-left border-y border-gray-100 py-6 max-w-2xl mx-auto">
-                        <img
+                        <OptimizedImageResponsive
                             src={blog?.author?.avatar}
                             alt={blog?.author?.name}
+                            width={56}
+                            height={56}
+                            loading="lazy"
                             className="w-14 h-14 rounded-full object-cover border-2 border-green-100"
                         />
                         <div>
@@ -266,9 +273,12 @@ export const BlogPage = () => {
 
                 {/* Hero Image */}
                 <div className="w-full aspect-[21/9] sm:aspect-[21/10] rounded-3xl overflow-hidden mb-12 shadow-2xl relative">
-                    <img
+                    <OptimizedImageResponsive
                         src={blog?.image}
                         alt={blog?.title}
+                        width={800}
+                        height={380}
+                        loading="lazy"
                         className="w-full h-full object-cover"
                     />
                 </div>

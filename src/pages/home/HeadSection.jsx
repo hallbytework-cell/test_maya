@@ -11,6 +11,7 @@ import {
 import { getPlantsByTag } from "@/api/customer/plant";
 import ProductCard from "@/components/ui/cards/ProductCard";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 import { useNavigate } from "react-router-dom";
 
 
@@ -74,9 +75,12 @@ export const HeroSection = ({ data }) => {
         <section className="relative h-[60vh] md:h-[70vh] min-h-[500px] lg:min-h-[600px] w-full bg-[#1A3626] overflow-hidden">
             {/* Background Image with Ken Burns Zoom Effect */}
             <div className="absolute inset-0">
-                <img
+                <OptimizedImageResponsive
                     src={data.image}
                     alt="Lush green plants"
+                    width={1920}
+                    height={1080}
+                    loading="lazy"
                     className="w-full h-full object-cover opacity-60 animate-[kenburns_20s_ease-out_infinite_alternate]"
                     style={{ transformOrigin: 'center center' }}
                 />
@@ -167,9 +171,12 @@ const CategoryCarousel = ({ categories }) => (
                 {categories.map((cat) => (
                     <div key={cat.id} className="flex flex-col items-center gap-3 md:gap-4 shrink-0 snap-start group cursor-pointer w-[100px] md:w-[140px] xl:w-[160px]">
                         <div className="w-24 h-24 md:w-36 md:h-36 xl:w-40 xl:h-40 rounded-full overflow-hidden border-[3px] md:border-4 border-white shadow-lg group-hover:border-[#2E5C41] group-hover:shadow-xl transition-all duration-500">
-                            <img
+                            <OptimizedImageResponsive
                                 src={cat.image}
                                 alt={cat.name}
+                                width={160}
+                                height={160}
+                                loading="lazy"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                             />
                         </div>

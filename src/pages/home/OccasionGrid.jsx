@@ -1,5 +1,6 @@
 import { anniversaryGiftCard, birthDayGiftCard, festivalGiftCard, officeGiftCard } from "@/constants/bannerImageUrl";
 import { useNavigate } from "react-router-dom";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 
 export function OccasionGrid() {
     const navigate = useNavigate();
@@ -44,8 +45,11 @@ export function OccasionGrid() {
 
                             onClick={() => navigate(occ.href)}
                             className="group relative min-h-64 lg:max-w-95 lg:h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500">
-                            <img
+                            <OptimizedImageResponsive
                                 src={occ.img}
+                                width={400}
+                                height={500}
+                                loading="lazy"
                                 className="absolute inset-0 w-[100%] h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 alt={occ.title}
                             />

@@ -2,6 +2,7 @@ import { mapCategoryDBToUI } from "@/utils/utils";
 import { Leaf, LeafIcon } from "lucide-react";
 import React, { useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 
 // --- ICONS ---
 const SparkleIconFilled = ({ className }) => (
@@ -171,9 +172,12 @@ const PlantCategories = ({ categories: rawCategories = [] }) => {
                     {/* The Image - Fills nearly the whole card background */}
                     <div className="absolute inset-x-4 top-4 bottom-24 sm:inset-x-6 sm:top-6 sm:bottom-28">
                        <div className="w-full h-full rounded-[30px] sm:rounded-[45px] overflow-hidden shadow-md">
-                          <img 
+                          <OptimizedImageResponsive 
                             src={item.img} 
-                            alt={item.label} 
+                            alt={item.label}
+                            width={280}
+                            height={280}
+                            loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                           />
                        </div>

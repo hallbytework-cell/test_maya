@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Gift } from "lucide-react";
 import { categories } from "@/data/categories";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 
 /* ------------- Category Cards ------------- */
 const CategoryCard = ({ cat }) => {
@@ -14,9 +15,12 @@ const CategoryCard = ({ cat }) => {
     >
       {/* Circular thumbnail with gradient ring */}
       <div className="bg-gradient-to-tr from-emerald-300 to-emerald-500 p-[2px] rounded-full">
-        <img
+        <OptimizedImageResponsive
           src={cat.img}
           alt={cat.label}
+          width={112}
+          height={112}
+          loading="lazy"
           className="
             w-20 h-20               /* phones */
             sm:w-24 sm:h-24         /* tablets */
