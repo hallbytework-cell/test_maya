@@ -49,50 +49,6 @@ export default defineConfig({
                                 main: path.resolve(__dirname, 'index.html'),
                         },
                         output: {
-                                // Advanced code splitting strategy
-                                manualChunks(id) {
-                                        // Vendor chunks - split large libraries
-                                        if (id.includes('node_modules')) {
-                                                if (id.includes('react')) {
-                                                        return 'vendor-react';
-                                                }
-                                                if (id.includes('@mui') || id.includes('@emotion')) {
-                                                        return 'vendor-ui';
-                                                }
-                                                if (id.includes('redux') || id.includes('react-redux') || id.includes('@reduxjs')) {
-                                                        return 'vendor-state';
-                                                }
-                                                if (id.includes('axios') || id.includes('@tanstack/react-query')) {
-                                                        return 'vendor-data';
-                                                }
-                                                if (id.includes('framer-motion') || id.includes('react-confetti')) {
-                                                        return 'vendor-animation';
-                                                }
-                                                if (id.includes('firebase')) {
-                                                        return 'vendor-firebase';
-                                                }
-                                                if (id.includes('lucide-react') || id.includes('react-icons')) {
-                                                        return 'vendor-icons';
-                                                }
-                                                if (id.includes('slick-carousel') || id.includes('react-slick')) {
-                                                        return 'vendor-carousel';
-                                                }
-                                                return 'vendor-common';
-                                        }
-                                        // App code chunks - split by page/feature for better code splitting
-                                        if (id.includes('src/pages')) {
-                                                const match = id.match(/src\/pages\/([^/]+)/);
-                                                if (match) {
-                                                        return `page-${match[1]}`;
-                                                }
-                                        }
-                                        // Component chunks for frequently used components
-                                        if (id.includes('src/components')) {
-                                                if (id.includes('Modal') || id.includes('Modal')) {
-                                                        return 'component-modal';
-                                                }
-                                        }
-                                },
                                 // Optimize chunk naming for better caching
                                 entryFileNames: 'js/[name]-[hash].js',
                                 chunkFileNames: 'js/[name]-[hash].js',
