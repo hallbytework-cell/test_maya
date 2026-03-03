@@ -28,6 +28,8 @@ export default defineConfig({
                         open: false,
                         gzipSize: true,
                         brotliSize: true,
+                        filename: 'stats.html',
+                        title: 'Bundle Size Analysis - Mobile Optimized',
                 }),
         ],
         resolve: {
@@ -41,9 +43,9 @@ export default defineConfig({
         build: {
                 rollupOptions: {
                         output: {
-                                // Advanced code splitting strategy for optimal chunk sizes
+                                // Advanced code splitting strategy optimized for mobile
                                 manualChunks(id) {
-                                        // Vendor chunks
+                                        // Vendor chunks - split large libraries
                                         if (id.includes('node_modules')) {
                                                 if (id.includes('react')) {
                                                         return 'vendor-react';
@@ -63,31 +65,71 @@ export default defineConfig({
                                                 if (id.includes('firebase')) {
                                                         return 'vendor-firebase';
                                                 }
+                                                if (id.includes('lucide-react') || id.includes('react-icons')) {
+                                                        return 'vendor-icons';
+                                                }
                                                 return 'vendor-common';
                                         }
+                                        // App code chunks - split by page/feature
+                                        if (id.includes('src/pages')) {
+                                                const match = id.match(/src\/pages\/([^/]+)/);
+                                                if (match) {
+                                                        return `page-${match[1]}`;
+                                                }
+                                        }
+                                },
+                                // Optimize chunk naming for better caching
+                                entryFileNames: 'js/[name]-[hash].js',
+                                chunkFileNames: 'js/[name]-[hash].js',
+                                assetFileNames: (assetInfo) => {
+                                        const info = assetInfo.name.split('.');
+                                        const ext = info[info.length - 1];
+                                        if (/png|jpe?g|gif|svg/.test(ext)) {
+                                                return 'images/[name]-[hash][extname]';
+                                        }
+                                        if (/woff|woff2|eot|ttf|otf/.test(ext)) {
+                                                return 'fonts/[name]-[hash][extname]';
+                                        }
+                                        if (ext === 'css') {
+                                                return 'css/[name]-[hash][extname]';
+                                        }
+                                        return '[name]-[hash][extname]';
                                 },
                         },
                 },
-                // Use esbuild for faster minification
+                // Mobile-optimized minification
                 minify: 'esbuild',
-                // Aggressive optimization
-                chunkSizeWarningLimit: 500,
+                chunkSizeWarningLimit: 350, // Stricter limit for mobile
                 reportCompressedSize: true,
-                // Target modern browsers for smaller bundles
+                // Target modern mobile browsers for smaller bundles
                 target: 'es2020',
-                // CSS optimization
+                // CSS optimization - inline critical CSS
                 cssCodeSplit: true,
                 sourcemap: false,
-                // Advanced optimization config
+                // Advanced optimization config for mobile
                 terserOptions: {
                         compress: {
                                 drop_console: true,
                                 drop_debugger: true,
-                                pure_funcs: ['console.log', 'console.info', 'console.debug'],
+                                pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
+                                passes: 2, // Additional pass for better compression
                         },
-                        mangle: true,
+                        mangle: {
+                                toplevel: true, // Mangle all variables for smaller output
+                        },
+                        format: {
+                                comments: false, // Remove all comments for smaller size
+                        },
                 },
-                assetsInlineLimit: 4096, // Inline assets smaller than 4KB
+                // Aggressive inlining threshold for mobile
+                assetsInlineLimit: 8192, // Inline assets up to 8KB (reduced network requests)
+                rollupOptions: {
+                        output: {
+                                // ... existing output config
+                        },
+                        // External dependencies optimization
+                        external: [], // Don't externalize for bundle optimization
+                },
         },
         // Optimize dependencies with pre-bundling
         optimizeDeps: {
@@ -105,8 +147,10 @@ export default defineConfig({
                         'react-confetti',
                         'react-lazy-load-image-component',
                 ],
+                // Force pre-bundle for mobile performance
+                force: true,
         },
-        // Server optimization for dev
+        // Server optimization for dev (mobile testing)
         server: {
                 middlewareMode: false,
                 hmr: {
@@ -114,5 +158,7 @@ export default defineConfig({
                         host: 'localhost',
                         port: 5173,
                 },
+                // Reduce memory usage on mobile dev servers
+                cors: true,
         },
 });
