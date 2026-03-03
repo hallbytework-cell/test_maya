@@ -7,76 +7,125 @@
   Permissions-Policy: geolocation=(self), camera=(), microphone=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-ancestors 'self'
   X-UA-Compatible: IE=edge
-  Accept-CH: DPR, Viewport-Width, Width
+  Accept-CH: DPR, Viewport-Width, Width, Sec-CH-DPR, Sec-CH-UA-Mobile
   Accept-CH-Lifetime: 86400
+  Vary: Accept-Encoding
 
 /*.js
   Cache-Control: public, immutable, max-age=31536000
-  Content-Type: application/javascript
+  Content-Type: application/javascript; charset=UTF-8
+  Content-Encoding: gzip
+  Vary: Accept-Encoding, Accept
+  ETag: strong
+
+/*.mjs
+  Cache-Control: public, immutable, max-age=31536000
+  Content-Type: application/javascript; charset=UTF-8
   Content-Encoding: gzip
   Vary: Accept-Encoding
+  ETag: strong
 
 /*.css 
   Cache-Control: public, immutable, max-age=31536000
-  Content-Type: text/css
+  Content-Type: text/css; charset=UTF-8
   Content-Encoding: gzip
   Vary: Accept-Encoding
+  ETag: strong
 
 /images/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+  Cache-Control: public, max-age=31536000, immutable
+  Vary: Accept-Encoding, Accept
+  Content-Encoding: gzip
+
+/images/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/webp
   Vary: Accept-Encoding
-  
+
+/images/*.png
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/png
+  Vary: Accept-Encoding
+
+/images/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
+  Vary: Accept-Encoding
+
+/images/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
+  Vary: Accept-Encoding
+
+/images/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+  Vary: Accept-Encoding
+
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/font-woff2
   Vary: Accept-Encoding
 
 /sw.js 
   Cache-Control: no-cache, must-revalidate, max-age=0
   Service-Worker-Allowed: /
+  Content-Type: application/javascript; charset=UTF-8
 
 /*.html
   Cache-Control: no-cache, must-revalidate, max-age=0
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
   
 /index.html
   Cache-Control: no-cache, must-revalidate, max-age=0
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Content-Type: text/html; charset=UTF-8
+  Vary: Accept-Encoding
 
 /sitemap.xml
   Cache-Control: no-cache, must-revalidate, max-age=0
+  Content-Type: application/xml
 
 /robots.txt
   Cache-Control: no-cache, must-revalidate, max-age=0
+  Content-Type: text/plain
 
 /product/*
-  Cache-Control: public, max-age=7200, stale-while-revalidate=86400
+  Cache-Control: public, max-age=3600, stale-while-revalidate=7200
   X-Robots-Tag: index, follow
   Vary: Accept-Encoding
+  Content-Type: text/html; charset=UTF-8
 
 /category/*
-  Cache-Control: public, max-age=7200, stale-while-revalidate=86400
+  Cache-Control: public, max-age=3600, stale-while-revalidate=7200
   X-Robots-Tag: index, follow
   Vary: Accept-Encoding
+  Content-Type: text/html; charset=UTF-8
 
-/* Mobile-optimized: Serve compressed assets to mobile browsers */
+# Compressed assets with proper content encoding
 /*.br
   Cache-Control: public, immutable, max-age=31536000
   Content-Encoding: br
-  Content-Type: application/javascript;charset=UTF-8; Vary: Accept-Encoding
+  Content-Type: application/javascript;charset=UTF-8
+  Vary: Accept-Encoding
 
 /*.gz
   Cache-Control: public, immutable, max-age=31536000
   Content-Encoding: gzip
-  Content-Type: application/javascript;charset=UTF-8; Vary: Accept-Encoding
-  X-Robots-Tag: index, follow
+  Content-Type: application/javascript;charset=UTF-8
+  Vary: Accept-Encoding
 
 # Search pages should not be cached
 /search*
   Cache-Control: no-cache, must-revalidate, max-age=0
   X-Robots-Tag: index, follow
+  Content-Type: text/html; charset=UTF-8
 
 # Admin and private pages should not be indexed
 /account/*
   X-Robots-Tag: noindex, follow
+  Cache-Control: no-cache, must-revalidate, max-age=0
+  Content-Type: text/html; charset=UTF-8
 
 /dashboard*
   X-Robots-Tag: noindex, follow

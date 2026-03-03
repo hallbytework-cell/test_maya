@@ -5,6 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from 'rollup-plugin-visualizer';
 import compression from 'vite-plugin-compression';
 
+// Analytics injector to prevent unused code bundling in production
+const isProduction = process.env.NODE_ENV === 'production';
+
 // https://vite.dev/config/
 export default defineConfig({
         plugins: [
@@ -42,8 +45,11 @@ export default defineConfig({
         },
         build: {
                 rollupOptions: {
+                        input: {
+                                main: path.resolve(__dirname, 'index.html'),
+                        },
                         output: {
-                                // Advanced code splitting strategy optimized for mobile
+                                // Advanced code splitting strategy
                                 manualChunks(id) {
                                         // Vendor chunks - split large libraries
                                         if (id.includes('node_modules')) {
@@ -68,13 +74,22 @@ export default defineConfig({
                                                 if (id.includes('lucide-react') || id.includes('react-icons')) {
                                                         return 'vendor-icons';
                                                 }
+                                                if (id.includes('slick-carousel') || id.includes('react-slick')) {
+                                                        return 'vendor-carousel';
+                                                }
                                                 return 'vendor-common';
                                         }
-                                        // App code chunks - split by page/feature
+                                        // App code chunks - split by page/feature for better code splitting
                                         if (id.includes('src/pages')) {
                                                 const match = id.match(/src\/pages\/([^/]+)/);
                                                 if (match) {
                                                         return `page-${match[1]}`;
+                                                }
+                                        }
+                                        // Component chunks for frequently used components
+                                        if (id.includes('src/components')) {
+                                                if (id.includes('Modal') || id.includes('Modal')) {
+                                                        return 'component-modal';
                                                 }
                                         }
                                 },
@@ -84,7 +99,7 @@ export default defineConfig({
                                 assetFileNames: (assetInfo) => {
                                         const info = assetInfo.name.split('.');
                                         const ext = info[info.length - 1];
-                                        if (/png|jpe?g|gif|svg/.test(ext)) {
+                                        if (/png|jpe?g|gif|svg|webp/.test(ext)) {
                                                 return 'images/[name]-[hash][extname]';
                                         }
                                         if (/woff|woff2|eot|ttf|otf/.test(ext)) {
@@ -96,39 +111,58 @@ export default defineConfig({
                                         return '[name]-[hash][extname]';
                                 },
                         },
+                        // Tree-shaking configuration for maximum unused code removal
+                        treeshake: {
+                                moduleSideEffects: false, // Assume no side effects for better tree shaking
+                                propertyReadSideEffects: false,
+                                tryCatchDeoptimization: false,
+                        },
                 },
-                // Mobile-optimized minification
+                // Aggressive minification
                 minify: 'esbuild',
-                chunkSizeWarningLimit: 350, // Stricter limit for mobile
+                esbuild: {
+                        drop: ['console', 'debugger'],
+                        pure: ['console.log', 'console.debug', 'console.info'],
+                },
+                chunkSizeWarningLimit: 500,
                 reportCompressedSize: true,
-                // Target modern mobile browsers for smaller bundles
-                target: 'es2020',
-                // CSS optimization - inline critical CSS
-                cssCodeSplit: true,
+                // Target modern browsers for smaller bundles (ES2020)
+                target: ['es2020', 'edge88', 'firefox78', 'chrome80', 'safari14'],
                 sourcemap: false,
-                // Advanced optimization config for mobile
+                // CSS optimization - split CSS for better caching
+                cssCodeSplit: true,
+                polyfillDynamicImport: false, // No polyfills for modern browsers
+                // Advanced terser configuration for maximum compression
                 terserOptions: {
                         compress: {
                                 drop_console: true,
                                 drop_debugger: true,
-                                pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
-                                passes: 2, // Additional pass for better compression
+                                passes: 3, // Three compression passes for maximum optimization
+                                pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn', 'console.error'],
+                                pure_getters: true,
+                                unsafe: true,
+                                unsafe_arrows: true,
+                                unsafe_comps: true,
+                                unsafe_Function: true,
+                                unsafe_methods: true,
+                                unsafe_proto: true,
+                                unsafe_regexp: true,
                         },
                         mangle: {
-                                toplevel: true, // Mangle all variables for smaller output
+                                toplevel: true,
+                                safari10: false, // No need to support old Safari
                         },
                         format: {
-                                comments: false, // Remove all comments for smaller size
+                                comments: false,
+                                max_line_len: 0,
+                                preamble: null,
                         },
                 },
-                // Aggressive inlining threshold for mobile
-                assetsInlineLimit: 8192, // Inline assets up to 8KB (reduced network requests)
-                rollupOptions: {
-                        output: {
-                                // ... existing output config
-                        },
-                        // External dependencies optimization
-                        external: [], // Don't externalize for bundle optimization
+                // Inline small assets to reduce HTTP requests
+                assetsInlineLimit: 8192,
+                lib: {
+                        entry: path.resolve(__dirname, 'src/main.jsx'),
+                        name: 'MV-EcomUI',
                 },
         },
         // Optimize dependencies with pre-bundling
@@ -140,14 +174,14 @@ export default defineConfig({
                         '@reduxjs/toolkit',
                         'react-redux',
                         'axios',
+                        '@tanstack/react-query',
                 ],
                 exclude: [
                         'react-hot-toast',
                         'framer-motion',
                         'react-confetti',
-                        'react-lazy-load-image-component',
                 ],
-                // Force pre-bundle for mobile performance
+                // Force pre-bundling and enable no external for better tree shaking
                 force: true,
         },
         // Server optimization for dev (mobile testing)
