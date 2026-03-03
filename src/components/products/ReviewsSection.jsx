@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Star, StarHalf, CheckCircle, Loader2, Filter, X, Image as ImageIcon, ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 import { createReview, getPlantReviews, getPlantReviewMedia, updateReview } from "@/api/customer/reviews";
 import { useAuth } from "@/context/AuthContext";
 import { Edit3 } from "lucide-react";
@@ -249,11 +250,15 @@ const ReviewsSection = ({ productName, variantId, plantId }) => {
         )}
 
         <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-12 pointer-events-none">
-          <img
+          <OptimizedImageResponsive
             src={selectedImage.url}
             alt="Review"
-            onDragStart={(e) => e.preventDefault()}
+            width={800}
+            height={600}
+            loading="lazy"
             className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl select-none pointer-events-auto"
+            style={{ pointerEvents: "auto" }}
+            onDragStart={(e) => e.preventDefault()}
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-8 text-white/90 text-sm font-bold bg-black/60 px-4 py-2 rounded-full backdrop-blur-md">
@@ -317,7 +322,14 @@ const ReviewsSection = ({ productName, variantId, plantId }) => {
                   onClick={() => openGalleryImage(img)}
                   className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer bg-gray-200 border border-gray-200 shadow-sm hover:shadow-md transition-all"
                 >
-                  <img src={img.url} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <OptimizedImageResponsive 
+                    src={img.url} 
+                    alt="Gallery" 
+                    width={200}
+                    height={200}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                     <ImageIcon className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -394,7 +406,14 @@ const ReviewsSection = ({ productName, variantId, plantId }) => {
                     if (index === 4 && totalGalleryCount > 5) {
                       return (
                         <div key={img.id || index} className="relative min-w-[6rem] w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden cursor-pointer group shadow-sm border border-gray-100 snap-start">
-                          <img src={img.url} className="w-full h-full object-cover" />
+                          <OptimizedImageResponsive 
+                            src={img.url} 
+                            alt="Gallery" 
+                            width={128}
+                            height={128}
+                            loading="lazy"
+                            className="w-full h-full object-cover" 
+                          />
                           <button onClick={() => setIsAllPhotosModalOpen(true)} className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white font-bold text-sm backdrop-blur-[2px]">
                             <span className="text-lg mb-0.5">+{totalGalleryCount - 5}</span>
                             <span className="text-[10px] uppercase">More</span>
@@ -408,7 +427,14 @@ const ReviewsSection = ({ productName, variantId, plantId }) => {
                         onClick={() => openGalleryImage(img)}
                         className="relative min-w-[6rem] w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden cursor-pointer border border-gray-100 shadow-sm snap-start"
                       >
-                        <img src={img.url} className="w-full h-full object-cover" />
+                        <OptimizedImageResponsive 
+                          src={img.url} 
+                          alt="Gallery" 
+                          width={128}
+                          height={128}
+                          loading="lazy"
+                          className="w-full h-full object-cover" 
+                        />
                       </div>
                     );
                   })}
@@ -523,7 +549,14 @@ const ReviewsSection = ({ productName, variantId, plantId }) => {
                                     onClick={() => openReviewImage(mediaItem, review.media.map(m => ({ ...m, url: m.url || m.mediaUrl })))}
                                     className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden cursor-pointer border border-gray-100 hover:border-emerald-400 transition-all shadow-sm active:scale-95"
                                   >
-                                    <img src={mediaItem.url} className="w-full h-full object-cover" />
+                                    <OptimizedImageResponsive 
+                                      src={mediaItem.url} 
+                                      alt="Review media" 
+                                      width={96}
+                                      height={96}
+                                      loading="lazy"
+                                      className="w-full h-full object-cover" 
+                                    />
                                   </div>
                                 );
                               })}
