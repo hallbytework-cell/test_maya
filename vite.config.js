@@ -60,6 +60,9 @@ export default defineConfig({
                                                 if (id.includes('framer-motion') || id.includes('react-confetti')) {
                                                         return 'vendor-animation';
                                                 }
+                                                if (id.includes('firebase')) {
+                                                        return 'vendor-firebase';
+                                                }
                                                 return 'vendor-common';
                                         }
                                 },
@@ -75,13 +78,16 @@ export default defineConfig({
                 // CSS optimization
                 cssCodeSplit: true,
                 sourcemap: false,
-                // Logging
+                // Advanced optimization config
                 terserOptions: {
                         compress: {
                                 drop_console: true,
                                 drop_debugger: true,
+                                pure_funcs: ['console.log', 'console.info', 'console.debug'],
                         },
+                        mangle: true,
                 },
+                assetsInlineLimit: 4096, // Inline assets smaller than 4KB
         },
         // Optimize dependencies with pre-bundling
         optimizeDeps: {
@@ -97,6 +103,7 @@ export default defineConfig({
                         'react-hot-toast',
                         'framer-motion',
                         'react-confetti',
+                        'react-lazy-load-image-component',
                 ],
         },
         // Server optimization for dev

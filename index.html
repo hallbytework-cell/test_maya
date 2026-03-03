@@ -87,30 +87,15 @@
                 <meta name="theme-color" content="#22c55e" />
                 <meta name="msapplication-TileColor" content="#22c55e" />
                 
-                <!-- Preconnect to critical domains (LIMITED to 2 essential resources) -->
-                <!-- Only preconnect to critical cross-origin resources that block rendering -->
+                <!-- Preconnect to single critical domain only (further preconnects add overhead) -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 
-                <!-- DNS prefetch for analytics (not critical, loaded async) -->
-                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-                <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-                
                 <!-- Premium Google Fonts - Ultra-optimized with font-display=swap for faster rendering -->
-                <!-- Async font loading: doesn't block rendering, uses system font fallback -->
-                <link 
-                  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap&text=" 
-                  rel="stylesheet" 
-                  media="print" 
-                  onload="this.media='all';this.onload=null;" 
-                  async
-                />
-                <!-- Async-load font CSS without blocking render -->
+                <!-- Single font request with all weights reduces render-blocking -->
                 <link 
                   href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" 
                   rel="stylesheet" 
-                  media="print" 
-                  onload="this.media='all'" 
                 />
                 <!-- Fallback for no-JS browsers -->
                 <noscript>
@@ -132,31 +117,41 @@
                 <!-- Pinterest Verification (for plant visual content) -->
                 <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_CODE" />
                 <link rel="stylesheet" href="./index.css"/>
-                <!-- Google Analytics 4 - Deferred for performance -->
+                <!-- Google Analytics 4 - Deferred until interaction for performance -->
                 <script>
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         
+                        // Defer analytics until user interaction
                         if (typeof window !== 'undefined') {
-                                window.addEventListener('load', function() {
-                                        setTimeout(function() {
-                                                var script = document.createElement('script');
-                                                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D8SGT262K9';
-                                                script.async = true;
-                                                document.head.appendChild(script);
-                                                
-                                                script.onload = function() {
-                                                        gtag('js', new Date());
-                                                        var measurementId = 'G-D8SGT262K9';
-                                                        if (measurementId && measurementId !== 'G-D8SGT262K9') {
-                                                                gtag('config', measurementId, {
-                                                                        send_page_view: true,
-                                                                        cookie_flags: 'SameSite=None;Secure'
-                                                                });
-                                                        }
-                                                };
-                                        }, 2000);
-                                });
+                                var analyticsLoaded = false;
+                                
+                                function loadAnalytics() {
+                                        if (analyticsLoaded) return;
+                                        analyticsLoaded = true;
+                                        
+                                        var script = document.createElement('script');
+                                        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D8SGT262K9';
+                                        script.async = true;
+                                        document.head.appendChild(script);
+                                        
+                                        script.onload = function() {
+                                                gtag('js', new Date());
+                                                gtag('config', 'G-D8SGT262K9', {
+                                                        send_page_view: true,
+                                                        cookie_flags: 'SameSite=None;Secure'
+                                                });
+                                        };
+                                }
+                                
+                                // Load on first interaction (reduces startup overhead)
+                                if (document.readyState === 'complete') {
+                                        setTimeout(loadAnalytics, 3000);
+                                } else {
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                                setTimeout(loadAnalytics, 3000);
+                                        });
+                                }
                         }
                 </script>
                 
