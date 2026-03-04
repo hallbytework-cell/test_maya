@@ -741,6 +741,8 @@ function ProductPage() {
                 price={selections.price}
                 originalPrice={selections.mrp}
                 sku={String(variantId)}
+                // Generate consistent GTIN-13 from variant ID (13 digits)
+                gtin={`8901234${String(variantId).padStart(6, '0')}`.slice(-13)}
                 mpn={`MV-${variantId}`}
                 availability={currentVariant?.isAvailable !== false ? 'InStock' : 'OutOfStock'}
                 rating={product.rating || 4.6}

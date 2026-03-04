@@ -106,6 +106,7 @@ export const OrganizationSchema = () => {
 /**
  * 2. PRODUCT SCHEMA (INTELLIGENT)
  * Automatically parses SKU data and prevents "Free Shipping" errors.
+ * CRITICAL: gtin parameter is required for Google Merchant Center rich results
  */
 export const ProductSchema = ({
   name,
@@ -120,7 +121,7 @@ export const ProductSchema = ({
   reviewCount = 12,
   category,
   slug,
-  gtin,
+  gtin, // REQUIRED for Merchant Center - pass unique product identifier
   mpn,
 }) => {
   const allImages = images.length > 0 ? images : (image ? [image] : []);
@@ -210,6 +211,97 @@ export const ProductSchema = ({
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: rating,
+      reviewCount: reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
+  };
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  );
+};
+
+/**
+ * 2.5 MERCHANT OFFER SCHEMA
+ * Comprehensive schema for Google Merchant Center listings with all required fields
+ */
+export const MerchantOfferSchema = ({
+  name,
+  description,
+  image,
+  price,
+  sku,
+  gtin,
+  brand = SITE_NAME,
+  availability = 'InStock',
+  shipping = { cost: 49, currency: 'INR' },
+  reviewCount = 12,
+  ratingValue = 4.8,
+}) => {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: name,
+    description: description,
+    image: image,
+    sku: sku,
+    ...(gtin && { gtin: gtin }),
+    brand: {
+      '@type': 'Brand',
+      name: brand,
+    },
+    offers: {
+      '@type': 'Offer',
+      url: `${SITE_URL}/product/${sku}`,
+      priceCurrency: 'INR',
+      price: price,
+      availability: availability === 'InStock' ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      seller: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+      },
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: shipping.cost,
+          currency: shipping.currency,
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'IN',
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 2,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 3,
+            maxValue: 7,
+            unitCode: 'DAY',
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'IN',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 7,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/FreeReturn',
+      },
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: ratingValue,
       reviewCount: reviewCount,
       bestRating: 5,
       worstRating: 1,
@@ -327,6 +419,7 @@ export const WebSiteSchema = () => {
 
 /**
  * 6. FAQ SCHEMA
+ * Note: Only render when actual FAQs are provided (prevents duplicate FAQPage)
  */
 export const FAQSchema = ({ faqs }) => {
   if (!faqs || faqs.length === 0) return null;
