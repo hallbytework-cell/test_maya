@@ -5,11 +5,11 @@ import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from 'rollup-plugin-visualizer';
 import compression from 'vite-plugin-compression';
 
-// Analytics injector to prevent unused code bundling in production
-const isProduction = process.env.NODE_ENV === 'production';
-
 // https://vite.dev/config/
 export default defineConfig({
+        define: {
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+        },
         plugins: [
                 react(),
                 tailwindcss(),

@@ -70,6 +70,15 @@
 
   "headers": [
     {
+      "source": "/src/**/*.jsx",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript; charset=UTF-8"
+        }
+      ]
+    },
+    {
       "source": "/",
       "headers": [
         {
