@@ -8,8 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 import store from "./redux/store";
 import ErrorBoundary from "./components/ErrorBoundary";
 import OfflineBanner from "./components/OfflineBanner";
-import { initSentry } from "./lib/sentry";
-import HomeSkeleton from "./components/shimmer/HomeSkeleton"; // YOUR HomeSkeleton
+import HomeSkeleton from "./components/shimmer/HomeSkeleton";
 
 const ReactQueryDevtools = lazy(() => import("@tanstack/react-query-devtools").then(m => ({ default: m.ReactQueryDevtools })));
 const Toaster = lazy(() => import("react-hot-toast").then(m => ({ default: m.Toaster })));
@@ -29,18 +28,24 @@ const queryClient = new QueryClient({
 });
 
 if (typeof window !== 'undefined') {
-  const deferInit = () => {
+  // Defer non-critical initialization until after hydration
+  const deferInit = async () => {
+    // Dynamically import Sentry after page is interactive
+    const { initSentry } = await import('./lib/sentry');
     initSentry();
+    
+    // Register service worker
     if ('serviceWorker' in navigator && import.meta.env.PROD) {
       navigator.serviceWorker.register('/sw.js').catch(() => { });
     }
   };
 
-  // if ('requestIdleCallback' in window) {
-  //   requestIdleCallback(deferInit, { timeout: 3000 });
-  // } else {
-  //   setTimeout(deferInit, 2000);
-  // }
+  // Use requestIdleCallback if available, fallback to setTimeout
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(deferInit, { timeout: 5000 });
+  } else {
+    setTimeout(deferInit, 3000);
+  }
 }
 
 function LazyToaster() {
@@ -68,12 +73,6 @@ function LazyToaster() {
 }
 
 function RootApp() {
-
-  useEffect(() => {
-    initSentry();
-  }, []);
-
-
   return (
     <ErrorBoundary>
       <div id="recaptcha-container" className="hidden" />
