@@ -3,7 +3,9 @@ import { setUserProfileInformations } from "@/context/AuthContext";
 import logger from "@/lib/logger";
 
 
-const API_URL =  "https://mayavriksh.in/api";
+// Use the Vercel proxy route to avoid CORS issues
+// The proxy at /api forwards to https://mayavriksh.in/api
+const API_URL = process.env.NODE_ENV === 'production' ? '/api' : "https://mayavriksh.in/api";
 // const API_URL =  "http://localhost:5500/api";
 
 const axiosInstance = axios.create({
