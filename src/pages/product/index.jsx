@@ -771,11 +771,11 @@ function ProductPage() {
                             <OptimizedImageResponsive 
                                 src="/images/rounded_mv_logo.jpg" 
                                 alt="MayaVriksh" 
-                                width={32}
-                                height={32}
+                                width={40}
+                                height={40}
                                 loading="eager"
                                 fetchpriority="high"
-                                className="h-8 w-auto object-contain cursor-pointer" 
+                                className="h-10 w-auto object-contain cursor-pointer" 
                             />
                         </Link>
                         <h2 className="text-sm font-bold text-slate-900 truncate max-w-[200px]" style={{ fontFamily: "'Poppins', sans-serif" }}>

@@ -307,7 +307,7 @@ export default function Navbar({ onCartClick, onSigninClick, isMobileSearchOpen,
 
                         <div className="shadow-sm">
                                 <div className=" mx-auto px-4 sm:px-6 lg:px-8">
-                                        <div className="flex items-center justify-between h-14 lg:h-20 lg:grid lg:grid-cols-3 gap-2">
+                                        <div className="flex items-center justify-between h-14 lg:h-20 lg:grid lg:grid-cols-3 gap-3 px-2">
 
                                                 {/* --- LEFT SECTION --- */}
                                                 {isMobileSearchOpen && (
@@ -321,7 +321,7 @@ export default function Navbar({ onCartClick, onSigninClick, isMobileSearchOpen,
                                                         </div>
                                                 )}
 
-                                                <div className={clsx("flex justify-between items-center gap-4 min-w-0 ", isMobileSearchOpen ? "hidden lg:flex" : "flex")}>
+                                                <div className={clsx("flex justify-between items-center gap-3 min-w-0 ", isMobileSearchOpen ? "hidden lg:flex" : "flex")}>
                                                         {/* Mobile menu toggle */}
                                                         <button
                                                                 onClick={() => setIsMobileMenuOpen((p) => !p)}
@@ -332,8 +332,8 @@ export default function Navbar({ onCartClick, onSigninClick, isMobileSearchOpen,
                                                         </button>
 
                                                         {/* Logo */}
-                                                        <Link to="/" className="flex items-center min-w-0">
-                                                                <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-8 min-h-8 min-w-8 w-auto object-contain" />
+                                                        <Link to="/" className="flex items-center min-w-0 shrink-0">
+                                                                <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-12 min-h-12 w-auto object-contain" />
                                                         </Link>
 
                                                         {/* Desktop Categories */}
@@ -374,7 +374,7 @@ export default function Navbar({ onCartClick, onSigninClick, isMobileSearchOpen,
                                                 </div>
 
                                                 {/* --- RIGHT SECTION (Cart, Profile) --- */}
-                                                <div className={clsx("flex justify-end items-center gap-5 min-w-0", isMobileSearchOpen ? "hidden lg:flex" : "flex")}>
+                                                <div className={clsx("flex justify-end items-center gap-4 min-w-0", isMobileSearchOpen ? "hidden lg:flex" : "flex")}>
                                                         <Link to="/track-order" className="hidden lg:flex items-center gap-2 hover:text-emerald-700 cursor-pointer">
                                                                 <Truck className="text-lg" />
                                                                 <span className="text-sm">Track My Plant</span>
