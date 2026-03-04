@@ -10,7 +10,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import OfflineBanner from "./components/OfflineBanner";
 import { initSentry } from "./lib/sentry";
 import HomeSkeleton from "./components/shimmer/HomeSkeleton"; // YOUR HomeSkeleton
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const ReactQueryDevtools = lazy(() => import("@tanstack/react-query-devtools").then(m => ({ default: m.ReactQueryDevtools })));
 const Toaster = lazy(() => import("react-hot-toast").then(m => ({ default: m.Toaster })));
@@ -86,7 +85,6 @@ function RootApp() {
             <Suspense fallback={<HomeSkeleton />}>
               <App />
             </Suspense>
-            <SpeedInsights />
           </QueryClientProvider>
         </AuthProvider>
       </Provider>
