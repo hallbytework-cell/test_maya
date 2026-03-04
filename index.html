@@ -98,28 +98,27 @@
                 <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
                 <link rel="dns-prefetch" href="https://www.google-analytics.com" />
                 
-                <!-- Premium Google Fonts - Ultra-optimized with font-display=swap for faster rendering -->
-                <!-- Single font request with all weights reduces render-blocking -->
-                <link 
-                  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" 
-                  rel="stylesheet" 
+                <!-- Google Fonts - loaded asynchronously to prevent render-blocking (improves FCP) -->
+                <!-- Reduced weights: only essential variants for faster download -->
+                <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+                  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap"
                 />
                 <!-- Fallback for no-JS browsers -->
                 <noscript>
-                  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+                  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
                 </noscript>
                 
                 <!-- Preload critical assets -->
                 <link rel="modulepreload" href="/src/main.jsx" />
                 
-                <!-- Preload above-fold hero carousel images for faster LCP -->
-                <link rel="preload" as="image" href="https://res.cloudinary.com/dwdu18hzs/image/upload/v1768482996/universal_uploads/univ_1768482990232_0_1768482990232.avif" fetchpriority="high" />
-                <link rel="preload" as="image" href="https://res.cloudinary.com/dwdu18hzs/image/upload/v1769878067/universal_uploads/univ_1769878057874_0_1769878057874.avif" fetchpriority="high" />
-                
-                <!-- Mobile-optimized: Preload mobile-specific banner image for faster LCP -->
-                <link rel="preload" as="image" href="/images/banner/banner1.jpg" fetchpriority="high" media="(max-width: 768px)" />
-                <!-- Desktop banner (lower priority on mobile) -->
-                <link rel="preload" as="image" href="/images/banner/banner1.jpg" fetchpriority="low" media="(min-width: 769px)" />
+                <!-- Preload actual LCP hero image (HeadSection hero, mobile-optimized via Cloudinary) -->
+                <link rel="preload" as="image"
+                  href="https://res.cloudinary.com/dwdu18hzs/image/upload/w_800,q_auto,f_auto/v1771754430/universal_uploads/univ_1771754420094_0_1771754420095.avif"
+                  fetchpriority="high" media="(max-width: 768px)" />
+                <!-- Desktop version of the same LCP hero image -->
+                <link rel="preload" as="image"
+                  href="https://res.cloudinary.com/dwdu18hzs/image/upload/w_1920,q_auto,f_auto/v1771754430/universal_uploads/univ_1771754420094_0_1771754420095.avif"
+                  fetchpriority="auto" media="(min-width: 769px)" />
                 
                 <!-- Inline critical CSS for above-fold content (mobile-first) -->
                 <style>
