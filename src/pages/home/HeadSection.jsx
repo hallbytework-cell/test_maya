@@ -15,12 +15,23 @@ import OptimizedImageResponsive from "@/components/OptimizedImageResponsive";
 import { useNavigate } from "react-router-dom";
 
 
+const HERO_IMAGE_BASE = "https://res.cloudinary.com/dwdu18hzs/image/upload";
+const HERO_IMAGE_PATH = "/v1771754430/universal_uploads/univ_1771754420094_0_1771754420095.avif";
+// Mobile-first: serve a smaller image on small screens via Cloudinary transforms
+const heroImageSrc = `${HERO_IMAGE_BASE}/w_1920,q_auto,f_auto${HERO_IMAGE_PATH}`;
+const heroImageSrcset = [
+    `${HERO_IMAGE_BASE}/w_480,q_auto,f_auto${HERO_IMAGE_PATH} 480w`,
+    `${HERO_IMAGE_BASE}/w_800,q_auto,f_auto${HERO_IMAGE_PATH} 800w`,
+    `${HERO_IMAGE_BASE}/w_1200,q_auto,f_auto${HERO_IMAGE_PATH} 1200w`,
+    `${HERO_IMAGE_BASE}/w_1920,q_auto,f_auto${HERO_IMAGE_PATH} 1920w`,
+].join(", ");
+
 const HOME_PAGE_DATA = {
     hero: {
         badge: "The Spring Collection",
         title: "Bring the outdoors in.",
         subtitle: "Create your personal sanctuary with our hand-picked, nursery-fresh plants delivered directly to your door.",
-        image: "https://res.cloudinary.com/dwdu18hzs/image/upload/v1771754430/universal_uploads/univ_1771754420094_0_1771754420095.avif"
+        image: heroImageSrc
     },
     trustBadges: [
         { id: 1, icon: "Truck", title: "Free Shipping", desc: "On orders over ₹999" },
@@ -80,7 +91,10 @@ export const HeroSection = ({ data }) => {
                     alt="Lush green plants"
                     width={1920}
                     height={1080}
-                    loading="lazy"
+                    loading="eager"
+                    fetchpriority="high"
+                    srcset={heroImageSrcset}
+                    sizes="100vw"
                     className="w-full h-full object-cover opacity-60 animate-[kenburns_20s_ease-out_infinite_alternate]"
                     style={{ transformOrigin: 'center center' }}
                 />
