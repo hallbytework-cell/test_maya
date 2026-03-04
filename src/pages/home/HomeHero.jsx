@@ -100,6 +100,7 @@ export default function HomeHero() {
                 alt={slide.btn.label}
                 width={1920}
                 height={1080}
+                fetchpriority={idx === 0 ? "high" : "low"}
                 loading={idx === 0 ? "eager" : "lazy"}
                 className="w-full h-full object-fill rounded-lg select-none block"
               />

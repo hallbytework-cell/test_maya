@@ -92,6 +92,7 @@
                 <!-- Preconnect to single critical domain only (further preconnects add overhead) -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link rel="dns-prefetch" href="https://res.cloudinary.com" />
                 
                 <!-- Premium Google Fonts - Ultra-optimized with font-display=swap for faster rendering -->
                 <!-- Single font request with all weights reduces render-blocking -->
@@ -106,6 +107,10 @@
                 
                 <!-- Preload critical assets -->
                 <link rel="modulepreload" href="/src/main.jsx" />
+                
+                <!-- Preload above-fold hero carousel images for faster LCP -->
+                <link rel="preload" as="image" href="https://res.cloudinary.com/dwdu18hzs/image/upload/v1768482996/universal_uploads/univ_1768482990232_0_1768482990232.avif" fetchpriority="high" />
+                <link rel="preload" as="image" href="https://res.cloudinary.com/dwdu18hzs/image/upload/v1769878067/universal_uploads/univ_1769878057874_0_1769878057874.avif" fetchpriority="high" />
                 
                 <!-- Mobile-optimized: Preload mobile-specific banner image for faster LCP -->
                 <link rel="preload" as="image" href="/images/banner/banner1.jpg" fetchpriority="high" media="(max-width: 768px)" />
@@ -126,6 +131,13 @@
                         .shimmer-search { flex: 1; height: 40px; background: #e0e0e0; border-radius: 20px; }
                         /* Prevent layout shift during image load */
                         img { max-width: 100%; height: auto; display: block; }
+                        /* Hero section critical styles */
+                        section { margin: 0; padding: 0; }
+                        .slick-slider { margin: 0; padding: 0; list-style: none; }
+                        /* Ensure images don't cause CLS */
+                        picture { display: block; width: 100%; }
+                        /* Font display optimization */
+                        @font-face { font-display: swap; }
                 </style>
                 
                 <!-- Google Search Console Verification -->
