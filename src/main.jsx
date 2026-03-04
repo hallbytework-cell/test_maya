@@ -42,9 +42,9 @@ if (typeof window !== 'undefined') {
 
   // Use requestIdleCallback if available, fallback to setTimeout
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(deferInit, { timeout: 5000 });
+    requestIdleCallback(deferInit, { timeout: 2000 });
   } else {
-    setTimeout(deferInit, 3000);
+    setTimeout(deferInit, 1000);
   }
 }
 

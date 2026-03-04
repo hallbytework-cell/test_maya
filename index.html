@@ -150,7 +150,11 @@
                 
                 <!-- Pinterest Verification (for plant visual content) -->
                 <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_CODE" />
-                <link rel="stylesheet" href="./index.css"/>
+                <!-- Critical CSS inline (already in <style> above) -->
+                <!-- Defer non-critical CSS to prevent render blocking -->
+                <link rel="stylesheet" href="./index.css" media="print" onload="this.media='all'; this.onload=null;"/>
+                <noscript><link rel="stylesheet" href="./index.css"/></noscript>
+                
                 <!-- Google Analytics 4 - Load immediately for data collection -->
                 <script>
                         window.dataLayer = window.dataLayer || [];
