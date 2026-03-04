@@ -72,7 +72,7 @@ export default function Footer({ companyName = "Mayavriksh" }) {
           {/* Column 1: Brand & Contact */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-12 w-auto object-contain" />
+              <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-8 w-auto object-contain" />
               <span className="text-xl font-bold text-white tracking-tight hidden sm:inline">{companyName}</span>
             </Link>
             <p className="text-xs text-gray-400">

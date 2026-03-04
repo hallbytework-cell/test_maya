@@ -333,7 +333,7 @@ export default function Navbar({ onCartClick, onSigninClick, isMobileSearchOpen,
 
                                                         {/* Logo */}
                                                         <Link to="/" className="flex items-center min-w-0 shrink-0">
-                                                                <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-12 min-h-12 w-auto object-contain" />
+                                                                <img src="/images/mvLogo.jpeg" alt="MayaVriksh" className="h-9 min-h-9 w-auto object-contain" />
                                                         </Link>
 
                                                         {/* Desktop Categories */}
