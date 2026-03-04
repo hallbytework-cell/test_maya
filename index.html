@@ -150,43 +150,17 @@
                 <meta name="p:domain_verify" content="REPLACE_WITH_PINTEREST_CODE" />
                 <link rel="stylesheet" href="./index.css" media="print" onload="this.media='all'" />
                 <noscript><link rel="stylesheet" href="./index.css" /></noscript>
-                <!-- Google Analytics 4 - Deferred until interaction for performance -->
+                <!-- Google Analytics 4 - Load immediately for data collection -->
                 <script>
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
-                        
-                        // Defer analytics until user interaction
-                        if (typeof window !== 'undefined') {
-                                var analyticsLoaded = false;
-                                
-                                function loadAnalytics() {
-                                        if (analyticsLoaded) return;
-                                        analyticsLoaded = true;
-                                        
-                                        var script = document.createElement('script');
-                                        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D8SGT262K9';
-                                        script.async = true;
-                                        document.head.appendChild(script);
-                                        
-                                        script.onload = function() {
-                                                gtag('js', new Date());
-                                                gtag('config', 'G-D8SGT262K9', {
-                                                        send_page_view: true,
-                                                        cookie_flags: 'SameSite=None;Secure'
-                                                });
-                                        };
-                                }
-                                
-                                // Load on first interaction (reduces startup overhead)
-                                if (document.readyState === 'complete') {
-                                        setTimeout(loadAnalytics, 3000);
-                                } else {
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                                setTimeout(loadAnalytics, 3000);
-                                        });
-                                }
-                        }
+                        gtag('js', new Date());
+                        gtag('config', 'G-D8SGT262K9', {
+                                send_page_view: true,
+                                cookie_flags: 'SameSite=None;Secure'
+                        });
                 </script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8SGT262K9"></script>
                 
                 <!-- JSON-LD Organization Schema with Brand Aliases -->
                 <script type="application/ld+json">
