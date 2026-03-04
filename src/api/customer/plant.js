@@ -1,7 +1,7 @@
 import axiosInstance from "../../config/axiosConfig";
 
 export const getAllPlants = async ({ page = 1, limit = 10, skip, plantCategory }) => {
-    const response = await axiosInstance.get("/api/plants", {
+    const response = await axiosInstance.get("/plants", {
         params: {
             page,
             limit,
@@ -13,7 +13,7 @@ export const getAllPlants = async ({ page = 1, limit = 10, skip, plantCategory }
 };
 
 export const getPlantById = async (id) => {
-    const response = await axiosInstance.get(`/api/plants/${id}`);
+    const response = await axiosInstance.get(`/plants/${id}`);
     return response.data;
 };
 
